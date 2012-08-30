@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  database: testapp-thinking-sphinx-development
+  pool: 5
+  timeout: 5000
+  user: milos
+  password: milos
+
+test:
+  adapter: postgresql
+  database: testapp-thinking-sphinx-test
+  pool: 5
+  timeout: 5000
+  user: milos
+  password: milos
+
+production:
+  adapter: postgresql
+  database: testapp-thinking-sphinx-production
+  pool: 5
+  timeout: 5000
+  user: milos
+  password: milos

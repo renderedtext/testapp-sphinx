@@ -12,6 +12,11 @@ end
 
 group :development, :test do
   gem 'rspec-rails', "~> 2.0"
+  gem 'cucumber-rails', :require => false
+end
+
+group :test do
+  gem 'database_cleaner'
 end
 
 gem 'jquery-rails'

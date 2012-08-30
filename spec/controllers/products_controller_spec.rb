@@ -1,8 +1,8 @@
 require 'spec_helper'
-require 'sphinx_helper'
 
 
 describe ProductsController do
+  after { Product.delete_all }
 
   def valid_attributes
     {}
@@ -17,20 +17,6 @@ describe ProductsController do
       product = Product.create! valid_attributes
       get :index, {}, valid_session
       assigns(:products).should eq([product])
-    end
-
-    context "with search parameters" do
-      before { Product.delete_all }
-      it "assigns search results as @products" do
-        ThinkingSphinx::Test.run do
-          smoki = Product.create! :name => "Smoki", :price => 50
-          plazma = Product.create! :name => "Plazma", :price => 150
-          ThinkingSphinx::Test.index
-
-          get :index, :search => "smoki"
-          expect(assigns(:products)).to eq([smoki])
-        end
-      end
     end
   end
 
